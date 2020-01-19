@@ -1,0 +1,9 @@
+#!/bin/bash
+final=""
+register=($(echo "$1" | rev | sed 's/.\{2\}/&\n/g'))
+for part in "${register[@]}"
+do
+    temp=$(echo "$part" | rev)
+    final+="\x$temp"
+done
+echo "$final"
